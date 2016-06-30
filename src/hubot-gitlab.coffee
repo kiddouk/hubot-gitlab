@@ -63,7 +63,7 @@ gitlabShowProjectKeys = (msg) ->
     console.log msg
     msg.send (message)
 
-gitlabTirgger = (msg) ->
+gitlabTrigger = (msg) ->
   console.log msg
   ref = msg.match[1]
   env = msg.match[2]
