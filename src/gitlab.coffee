@@ -63,6 +63,13 @@ gitlabShowProjectKeys = (msg) ->
     console.log msg
     msg.send (message)
 
+gitlabTirgger = (msg) ->
+  console.log msg
+  ref = msg.match[1]
+  env = msg.match[2]
+  message = "deploying " + ref + " on " + env
+  msg.send (message)
+
 gitlabShowUser = (msg) ->
   userId = msg.match[1]
   message = ""
@@ -98,10 +105,14 @@ module.exports = (robot) ->
   robot.respond /gitlab show user ([\w\.\-_ ]+)(, (.+))?/i, (msg) ->
     gitlabShowUser(msg)
 
+  robot.response /deploy ([\w\.\-_\/]) on (\w)/i, (msg) ->
+    gitlabTrigger(msg)
+
   robot.gitlab = {
     'list projects': gitlabList
     'list users': gitlabListUsers
     'show project': gitlabShowProject
     'show project keys': gitlabShowProjectKeys
     'show user': gitlabShowUser
+    'deploy': gitlabTrigger
   }
