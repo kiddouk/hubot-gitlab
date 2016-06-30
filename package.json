@@ -13,7 +13,7 @@
     "url": "https://github.com/sevaa-group/hubot-gitlab/issues"
   },
   "dependencies": {
-    "gitlab": "^1.2.1"
+    "gitlab": "^1.6.0"
   },
   "peerDependencies": {
     "hubot": "2.x"
